@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { getFunName } from '../helpers';
 
 export default class StorePicker extends React.Component {
@@ -13,10 +13,17 @@ export default class StorePicker extends React.Component {
 
   myInput = React.createRef();
 
-  goToStore = (event) => {
+  goToStore = event => {
+    //1.stop the form from submitting 
     event.preventDefault();
-    console.log(this);
-  }
+    //2. get the text from that input
+    console.log(this.myInput.current.value)
+    const storeName= this.myInput.current.value;
+    //3. change page to store whatever they entered
+
+    this.props.history.push(`/store/${storeName}`);
+    //the StorePicker lives as child of Router
+  };
 
   // componentDidMount() {
   //   console.log("Mounted");
@@ -26,19 +33,19 @@ export default class StorePicker extends React.Component {
   render() {
     // console.log(this);
     return (
-      <Fragment>
-        <form className='store-selector' onSubmit={this.goToStore}>
-          <h2> Enter a store</h2>
-          {/* <button onClick={this.handleClick}> Click Me!</button> */}
-          <p>I am the store picker!</p>
-          <input
-            type="text" 
-            ref={this.myInput}
-            required placeholder="Store Name"
-            defaultValue={getFunName()} />
-          <button type="submit">Visit Store</button>
-        </form>
-      </Fragment>
+
+      <form className='store-selector' onSubmit={this.goToStore}>
+        <h2> Enter a store</h2>
+        {/* <button onClick={this.handleClick}> Click Me!</button> */}
+        <p>I am the store picker!</p>
+        <input
+          type="text"
+          ref={this.myInput}
+          required placeholder="Store Name"
+          defaultValue={getFunName()} />
+        <button type="submit">Visit Store</button>
+      </form>
+
     );
   }
 }
