@@ -2,6 +2,7 @@ import React from 'react';
 import { getFunName } from '../helpers';
 
 export default class StorePicker extends React.Component {
+  //This is the handle click method, Either this option with constructor or to use a goToStore property that calls a function. 
   // handleClick(){
   //   alert('hey');
   // }
@@ -12,7 +13,7 @@ export default class StorePicker extends React.Component {
   // }
 
   myInput = React.createRef();
-
+//this is the goToStore property that calls a function
   goToStore = event => {
     //1.stop the form from submitting 
     event.preventDefault();
