@@ -11,7 +11,7 @@ export default class App extends React.Component {
   addFish = fish => {
     //1. Take a copy of existing state
     const fishes = { ...this.state.fishes };
-    //2. Add our new fish to that fishes cariable
+    //2. Add our new fish to that fishes variable
     fishes[`fish${Date.now()}`] = fish;
     //fish goes down to addFishForm in the props.fish
     //3. set the new fishes object to state
