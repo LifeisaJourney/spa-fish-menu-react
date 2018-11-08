@@ -8,15 +8,18 @@ export default class App extends React.Component {
     fishes: {},
     order: {}
   };
+
+  //addFish property has a function that takes fish and passes down.
   addFish = fish => {
-    //1. Take a copy of existing state
+    //1. Take a copy of existing state. Spreads out the existing state of fishes
     const fishes = { ...this.state.fishes };
-    //2. Add our new fish to that fishes variable
+    //2. Add our new fish to that fishes state along with keys that is time.
     fishes[`fish${Date.now()}`] = fish;
     //fish goes down to addFishForm in the props.fish
     //3. set the new fishes object to state
+    //can also be this.setState({ fishes});
     this.setState({
-      fishes
+      fishes: fishes
     });
     console.log("fish");
   };

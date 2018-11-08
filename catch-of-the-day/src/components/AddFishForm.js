@@ -18,8 +18,9 @@ export default class AddFishForm extends React.Component {
       desc: this.descRef.current.value,
       image: this.imageRef.current.value
     };
+    //this.props.addFish is passed down from the Inventory.
     this.props.addFish(fish);
-    //refresh the form
+    //refresh the form which is currentTarget
     // console.log(event.currentTarget);
     event.currentTarget.reset();
   };
